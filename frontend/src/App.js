@@ -395,5 +395,4 @@ function App() {
 
 export default App;
 
-[build.environment]
-  REACT_APP_API_URL = "https://passwordstrengthlib.onrender.com"
+ 
