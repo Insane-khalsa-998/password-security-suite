@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import {
   TextField, Button, Typography, Box, CircularProgress,
-  Card, IconButton, Tooltip, Snackbar, Alert
+  Card, Snackbar, Alert
 } from '@mui/material';
 import axios from 'axios';
 import PasswordIcon from '@mui/icons-material/VpnKey';
@@ -13,8 +13,6 @@ import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import SearchIcon from '@mui/icons-material/Search';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import PersonIcon from '@mui/icons-material/Person';
 import './App.css';
 
 function App() {
@@ -26,8 +24,6 @@ function App() {
   const [quantumLength, setQuantumLength] = useState(24);
   const [quantumPassword, setQuantumPassword] = useState('');
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
-  const [currentTime] = useState('2025-01-23 23:26:54');
-  const [currentUser] = useState('Insane-khalsa-998');
 
   const checkPasswordStrength = async () => {
     if (password.length > 0) {
