@@ -12,9 +12,13 @@ import os
 app = Flask(__name__)
 CORS(app, resources={
     r"/*": {
-        "origins": ["http://localhost:3000", "thunderous-vacherin-e13beb.netlify.app"],
+        "origins": [
+            "http://localhost:3000",
+            "https://thunderous-vacherin-e13beb.netlify.app",
+            "https://passwordstrengthlib.onrender.com"
+        ],
         "methods": ["GET", "POST", "OPTIONS"],
-        "allow_headers": ["Content-Type"]
+        "allow_headers": ["Content-Type", "Authorization"]
     }
 })
 
