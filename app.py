@@ -10,7 +10,10 @@ import random
 import os
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, resources={r"/*": {"origins": [
+    "https://thunderous-vacherin-e13beb.netlify.app",  # Replace with your Netlify domain
+    "http://localhost:3000"  # For local development
+]}})
 
 def generate_complex_password(length=16):
     """Generate a complex password with specific requirements"""

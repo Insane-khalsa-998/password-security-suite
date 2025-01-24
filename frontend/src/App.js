@@ -25,6 +25,8 @@ function App() {
   const [quantumPassword, setQuantumPassword] = useState('');
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
 
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
   const checkPasswordStrength = async () => {
     if (password.length > 0) {
       setLoading(true);
