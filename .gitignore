@@ -10,3 +10,8 @@ venv/
 
 # Miscellaneous
 .DS_Store
+
+# Explicitly include backend files
+!backend/
+!backend/**/*
+

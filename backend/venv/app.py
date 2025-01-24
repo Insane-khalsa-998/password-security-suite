@@ -9,7 +9,10 @@ from datetime import datetime
 import random
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": [
+    "https://your-netlify-url.netlify.app",
+    "http://localhost:3000"
+]}})
 
 def generate_complex_password(length=16):
     """Generate a complex password with specific requirements"""
