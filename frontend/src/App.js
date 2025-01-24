@@ -31,7 +31,7 @@ function App() {
     if (password.length > 0) {
       setLoading(true);
       try {
-        const response = await axios.post('http://localhost:5000/check_password', { password });
+        const response = await axios.post(`${API_URL}/check_password`, { password });
         setFeedback(response.data);
         if (response.data.leak_check.leaked) {
           setSnackbar({
@@ -365,7 +365,13 @@ function App() {
                     >
                       Regenerate
                     </Button>
-                  </Box>
+                  </Box>                  [build]
+                    base = "frontend"
+                    command = "npm run build"
+                    publish = "build"
+                  
+                  [build.environment]
+                    REACT_APP_API_URL = "https://your-render-backend-url.onrender.com"
                 </Box>
               </Box>
             )}
@@ -388,3 +394,6 @@ function App() {
 }
 
 export default App;
+
+[build.environment]
+  REACT_APP_API_URL = "https://passwordstrengthlib.onrender.com"
