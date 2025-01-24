@@ -10,7 +10,7 @@ import random
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": [
-    "https://your-netlify-url.netlify.app",
+    "https://thunderous-vacherin-e13beb.netlify.app",
     "http://localhost:3000"
 ]}})
 
