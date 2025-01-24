@@ -223,7 +223,10 @@ def generate_quantum_secure_password_route():
     except Exception as e:
         return jsonify({'error': 'Failed to generate quantum-secure password'}), 500
 
+@app.route('/')
+def home():
+    return jsonify({"status": "API is running"}), 200
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
-
