@@ -10,10 +10,7 @@ import random
 import os
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": [
-    "https://thunderous-vacherin-e13beb.netlify.app",  # Replace with your Netlify domain
-    "http://localhost:3000"  # For local development
-]}})
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 def generate_complex_password(length=16):
     """Generate a complex password with specific requirements"""
@@ -179,6 +176,10 @@ def check_password_strength(password):
         'requirements_failed': strength['requirements_failed']
     }
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({"status": "healthy"}), 200
+
 @app.route('/check_password', methods=['POST'])
 def check_password():
     try:
@@ -225,3 +226,5 @@ def generate_quantum_secure_password_route():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
+
+REACT_APP_API_URL=https://passwordstrengthlib.onrender.com
