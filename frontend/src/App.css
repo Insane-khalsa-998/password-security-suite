@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #2196f3;
+  --success-color: #00C851;
+  --error-color: #ff4444;
+  --warning-color: #ffa700;
+  --card-bg: #1e1f23;
+  --hover-color: rgba(255, 255, 255, 0.1);
+  --heading-color: #00ff95;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #141414 0%, #1a1a1a 100%);
+  min-height: 100vh;
+  color: white;
+}
+
+/* Header and Info Display */
+.main-heading {
+  text-align: center;
+  font-size: 2.5rem !important;
+  font-weight: 600 !important;
+  background: linear-gradient(45deg, #ffffff, #b3b3b3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+  margin-bottom: 20px !important;
+}
+
+.info-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+}
+
+.time-display {
+  font-family: 'Roboto Mono', monospace !important;
+  font-size: 0.9rem !important;
+  color: var(--success-color) !important;
+}
+
+.user-display {
+  font-family: 'Roboto Mono', monospace !important;
+  font-size: 0.9rem !important;
+  color: var(--warning-color) !important;
+}
+
+/* Container Layout */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Card Styles */
+.card {
+  background: var(--card-bg) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(106, 146, 214, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(28, 98, 248, 0.4) !important;
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.card-description {
+  color: #b3b3b3 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+  margin-top: 8px !important;
+}
+
+/* Input Fields */
+.password-input, .length-input {
+  margin-bottom: 20px !important;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.MuiTextField-root .MuiOutlinedInput-root {
+  color: white !important;
+}
+
+.MuiTextField-root .MuiInputLabel-root {
+  color: #b3b3b3 !important;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Button Styles */
+.button-group {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.MuiButton-contained {
+  background: linear-gradient(45deg, var(--primary-color), #1976d2) !important;
+  font-weight: 500 !important;
+  padding: 10px 24px !important;
+  text-transform: none !important;
+}
+
+.MuiButton-outlined {
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  color: white !important;
+  text-transform: none !important;
+}
+
+/* Password Strength Indicators */
+.strength-indicator {
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600 !important;
+  letter-spacing: 1px;
+  margin: 20px 0;
+}
+
+.strength-very-weak { background: linear-gradient(45deg, #ff4444, #cc0000); }
+.strength-weak { background: linear-gradient(45deg, #ffa700, #ff6d00); }
+.strength-medium { background: linear-gradient(45deg, #ffeb3b, #fdd835); color: #000 !important; }
+.strength-strong { background: linear-gradient(45deg, #00C851, #007E33); }
+.strength-very-strong { background: linear-gradient(45deg, #007E33, #004d1f); }
+
+/* Leak Check Results */
+.leak-check-box {
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+  transition: all 0.3s ease;
+}
+
+.leak-check-box.leaked {
+  background: rgba(255, 68, 68, 0.1);
+  border: 2px solid var(--error-color);
+  animation: pulse 2s infinite;
+}
+
+.leak-check-box.safe {
+  background: rgba(0, 200, 81, 0.1);
+  border: 2px solid var(--success-color);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 68, 68, 0); }
+}
+
+/* Generated Password Display */
+.generated-password-box {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.password-display {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 16px;
+  border-radius: 8px;
+  margin: 12px 0;
+  font-family: 'Roboto Mono', monospace;
+  word-break: break-all;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Requirements Sections */
+.requirements-container {
+  margin-top: 20px;
+}
+
+.requirements-section {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+}
+
+.requirements-section.met {
+  border: 1px solid var(--success-color);
+}
+
+.requirements-section.failed {
+  border: 1px solid var(--error-color);
+}
+
+.requirements-section ul {
+  list-style: none;
+  margin-top: 12px;
+}
+
+.requirements-section li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  margin: 8px 0;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.95rem;
+}
+
+/* Quantum Password Section */
+.quantum .password-display {
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3));
+  border: 1px solid rgba(33, 150, 243, 0.3);
+}
+
+/* Loading Animation */
+.MuiCircularProgress-root {
+  margin: 20px auto !important;
+  display: block !important;
+}
+
+/* Snackbar Alerts */
+.MuiAlert-root {
+  border-radius: 8px !important;
+}
+
+.MuiAlert-standardSuccess {
+  background-color: var(--success-color) !important;
+}
+
+.MuiAlert-standardError {
+  background-color: var(--error-color) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .main-heading {
+    font-size: 2rem !important;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .info-box {
+    padding: 4px 8px;
+  }
+
+  .time-display,
+  .user-display {
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Copy Button Animation */
+@keyframes copySuccess {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.MuiButton-root:active {
+  animation: copySuccess 0.2s ease-in-out;
+}
+
+/* Icon Animations */
+.MuiSvgIcon-root {
+  transition: transform 0.2s ease;
+}
+
+.MuiIconButton-root:hover .MuiSvgIcon-root {
+  transform: scale(1.1);
+}
+
+/* Focus States */
+.MuiTextField-root .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--primary-color) !important;
+  border-width: 2px;
+}
+
+/* Hover Effects */
+.MuiButton-contained:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3) !important;
+}
+
+.MuiButton-outlined:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+
+
+.card .MuiTypography-h5 {
+  color: var(--heading-color) !important;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.card-header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.card-header .MuiSvgIcon-root {
+  color: var(--heading-color);
+}
