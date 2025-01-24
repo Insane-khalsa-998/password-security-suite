@@ -25,7 +25,23 @@ function App() {
   const [quantumPassword, setQuantumPassword] = useState('');
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
 
-  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+  const API_URL = process.env.REACT_APP_API_URL || 'https://passwordstrengthlib.onrender.com';
+
+  axios.defaults.headers.common = {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'
+  };
+
+  const checkConnection = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/health`);
+      console.log('Backend Status:', response.data);
+      return true;
+    } catch (error) {
+      console.error('Connection Error:', error);
+      return false;
+    }
+  };
 
   const checkPasswordStrength = async () => {
     if (password.length > 0) {
@@ -394,5 +410,3 @@ function App() {
 }
 
 export default App;
-
- 
