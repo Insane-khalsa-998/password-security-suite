@@ -1,17 +1,4 @@
-# Node.js
-node_modules/
-npm-debug.log
-
-# Python
+venv/
 __pycache__/
 *.pyc
-env/
-venv/
-
-# Miscellaneous
-.DS_Store
-
-# Explicitly include backend files
-!backend/
-!backend/**/*
-
+.env

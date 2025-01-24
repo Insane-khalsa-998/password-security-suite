@@ -9,10 +9,7 @@ from datetime import datetime
 import random
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": [
-    "https://thunderous-vacherin-e13beb.netlify.app",
-    "http://localhost:3000"
-]}})
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 def generate_complex_password(length=16):
     """Generate a complex password with specific requirements"""
@@ -221,5 +218,6 @@ def generate_quantum_secure_password_route():
     except Exception as e:
         return jsonify({'error': 'Failed to generate quantum-secure password'}), 500
 
-if __name__ == "__main__":
-    app.run()
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
